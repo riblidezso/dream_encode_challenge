@@ -11,3 +11,11 @@ You can run the image with the script i made. It mounts the data (/mnt/vdisk/dat
 
 ```./run.sh [TF_name]```
 
+## My baseline notebook
+
+#### Dissected and reproduced the baseline script
+
+- I cut the originial loader class (which takes around 6-8 hours for me to run) into separate loader functions for the different columns of the input.
+- I have done some small and easy parallelization (3-10x faster).
+- Some parts are not complete, and has to be understood in the baseline.
+
