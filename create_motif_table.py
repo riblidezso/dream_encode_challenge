@@ -9,19 +9,13 @@ from Bio import SeqIO
 from pyDNAbinding.binding_model import DNASequence, PWMBindingModel, DNABindingModels, load_binding_models
 
 
-#the aggregate colnames
-aggregate_region_scores_labels = ["motif_mean", "motif_max", "motif_q99",
-                                  "motif_q95", "motif_q90", "motif_q75", "motif_q50"]
+
 def aggregate_region_scores(scores,
                             quantile_probs = [0.99, 0.95, 0.90, 0.75, 0.50]):
     """Return aggregate scores of all scores from a region."""
     rv = [scores.mean()/len(scores), scores.max()]
     rv.extend(mquantiles(scores, prob=quantile_probs))
     return rv
-
-#global shared result array... is there a better way?
-shape=(len(idx),len(aggregate_region_scores_labels))
-motif_scores = sharedctypes.RawArray('d', shape[0]*shape[1])
 
 def load_motif_scores(t_factor,
                       n_proc=12):
@@ -73,6 +67,17 @@ idx=pd.read_csv(
     'test_regions.blacklistfiltered.bed.gz',
     index_col=(0,1,2),
     sep='\t').index
+
+#global var for baselines script
+#the aggregate colnames
+aggregate_region_scores_labels = ["motif_mean", "motif_max", "motif_q99",
+                                  "motif_q95", "motif_q90", "motif_q75", "motif_q50"]
+
+#global var for my multiprocessing
+#global shared result array... is there a better way?
+shape=(len(idx),len(aggregate_region_scores_labels))
+motif_scores = sharedctypes.RawArray('d', shape[0]*shape[1])
+
 
 #create motif scroe table
 motif_df=load_motif_scores(tf)
