@@ -41,7 +41,7 @@ For every transciption factor they originally provided a file containing the mea
 
 ```
 import pandas as pd
-A549_fc_df=pd.read_hdf("/mnt/vdisk/data/synapse/extended_labels/ATF2_labels.hdf","labels")
+A549_labels_df=pd.read_hdf("/mnt/vdisk/data/synapse/extended_labels/ATF2_labels.hdf","labels")
 ```
 
 ## Baseline docker
