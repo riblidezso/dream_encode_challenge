@@ -65,6 +65,7 @@ with open(REF_GENOME, "rU") as h:
 #load index
 idx=pd.read_csv(
     'test_regions.blacklistfiltered.bed.gz',
+    header=None,
     index_col=(0,1,2),
     sep='\t').index
 
