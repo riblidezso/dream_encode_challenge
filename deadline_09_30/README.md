@@ -40,7 +40,7 @@ As stated before we joined very late to the challenge. By using the chipseq labe
 
 ## Authors Statement
 
-Each author took part in the discussions where we designed our method. Janos Szalai-Gindl and Sandor Laki  also created the research enviroment, installed and studied the softwares and programs used. Janos-Gindl Szalai studied and reproduced the baseline method provided by the challenge organizers. Akos Rudolf explored the dataset. Dezso Ribli created the preprocessing scripts and the submission notebooks. Attila Kiss and Istvan Csabai are the heads of the group and they supervise the work of the other members.
+Each author took part in the discussions where we designed our method. Janos Szalai-Gindl and Sandor Laki  also created the research enviroment, installed and studied the softwares and programs used. Janos-Gindl Szalai studied and reproduced the baseline method provided by the challenge organizers. Akos Rudas explored the dataset. Dezso Ribli created the preprocessing scripts and the submission notebooks. Attila Kiss and Istvan Csabai are the heads of the group and they supervise the work of the other members.
 
 ## Acknowledgements
 
