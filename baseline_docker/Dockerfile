@@ -1,7 +1,19 @@
-FROM continuumio/anaconda
+# Build as jupyter/systemuser
+# Run with the DockerSpawner in JupyterHub
 
-RUN conda install -y -c bioconda pybedtools
-RUN conda install -y -c bioconda pybigwig
+FROM jupyter/singleuser
+
+MAINTAINER ENCODE-ELTE-NODE
+
+USER root
+ENV SHELL /bin/bash
+
+#baseline
+#pybedtools pybigwig
+RUN conda install -y -c bioconda pybedtools pybigwig
+RUN conda install -y psycopg2=2.6.2 biopython
+RUN apt-get install -y bedtools
+
 
 #pydnabinding
 RUN apt-get update; apt-get install -y gcc
@@ -12,7 +24,20 @@ RUN cd pyDNAbinding; python setup.py build; python setup.py install
 RUN cp -r /pyDNAbinding/pyDNAbinding/shape_data/ /opt/conda/lib/python2.7/site-packages/pyDNAbinding-0.1.1-py2.7-linux-x86_64.egg/pyDNAbinding/
 
 RUN conda install -y shapely
-RUN apt-get install -y bedtools
 
-WORKDIR /root/baseline
-ENTRYPOINT ["python","baseline.py"]
+#genome
+ADD hg19.fa /opt/hg19.genome.fa
+
+#samtools...
+
+#other
+#samtools...
+
+#conda R
+RUN conda install -c https://conda.anaconda.org/r r-essentials
+
+ADD systemuser.sh /srv/singleuser/systemuser.sh
+
+RUN USER_ID=65000 USER=systemusertest sh /srv/singleuser/systemuser.sh -h && userdel systemusertest
+
+CMD ["sh", "/srv/singleuser/systemuser.sh"]
