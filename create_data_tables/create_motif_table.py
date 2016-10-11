@@ -89,6 +89,7 @@ idx=pd.read_csv(
     header=None,
     index_col=(0,1,2),
     sep='\t').index
+idx.rename(['chr','start','stop'],inplace=True)
 print 'Done'
 
 
@@ -111,8 +112,9 @@ for tf in tf_list:
     print 'Creating motif table for ',tf,'...',
     sys.stdout.flush()
     motif_df=load_motif_scores(tf)
+    #rename index for
     #save it as hdf
-    print ', saving it ... ',
+    print ' saving it ... ',
     sys.stdout.flush()
     motif_df.to_hdf('motif_data/'+tf+'_motif.hdf','motif')
     print 'Done'

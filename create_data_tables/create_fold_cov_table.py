@@ -17,7 +17,7 @@ import numpy as np
 import pandas as pd
 import pyBigWig
 
-DNASE_FOLD_COV_DIR ="/encodeChallenge_Data/DANSE/fold_coverage_wiggles/"
+DNASE_FOLD_COV_DIR ="/encodeChallenge_Data/DNASE/fold_coverage_wiggles/"
 
 def load_dnase_fold_cov(cell_line,
                         n_proc=12,
@@ -38,7 +38,13 @@ def get_dnase_fold_cov_from_region(i,fn=None):
     """Get raw dnase fold coverage for a region."""
     contig,start,stop=idx[i]
     bigwig_f=pyBigWig.open(fn)
-    fold_cov[i]=bigwig_f.stats(contig,start,stop)[0]
+    
+    fc=bigwig_f.stats(contig,start,stop)[0]
+    if fc!=None:
+        fold_cov[i]=fc
+    else:
+        fold_cov[i]=0
+        
     bigwig_f.close()
     return
 
@@ -60,6 +66,7 @@ idx=pd.read_csv(
     header=None,
     index_col=(0,1,2),
     sep='\t').index
+idx.rename(['chr','start','stop'],inplace=True)
 print 'Done'
 
 #global shared result array... is there a better way?
@@ -71,7 +78,7 @@ subprocess.call(['mkdir','fold_cov_data'])
 for cl in cl_list:  
     print 'Creating fold cov table for ',cl,'...',
     dnase_fc_df=load_dnase_fold_cov(cl)
-    print ', saving it ... ',
+    print ' saving it ... ',
     dnase_fc_df.to_hdf('fold_cov_data/'+cl+'_dnase_fold_cov.hdf',
                        'dnase_fold_cov')
     print 'Done'
