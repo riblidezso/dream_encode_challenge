@@ -13,7 +13,7 @@ We joined very late to the challenge, and our submission in based on the methods
 
 ## Methods
 
-### Features
+#### Features
 
 We have used the following variables:
 - Motif scores as calculated in the baseline method. Used parallelism to speed up things.
@@ -23,13 +23,13 @@ We have used the following variables:
 
 Please note that our leaderboard submission is different from the final submissions, as it does not use the chipseq labels from other cell lines as input variables. The notebook can be found in lb_subs_09_30 folder.
 
-### Model
+#### Model
 We have used logistic regression, trained in a stochastic gradient fashion, using sklearn to predict the labels.
 
-### Running the code
+#### Running the code
 The preprocessed data was generated using the scripts in create_data_tables folder.  The predictions were made in jupyter notebooks and these notebooks can be found in the final_subs_09_30 folder. To run the notebooks just click run all.  Please note that the notebooks and the scripts were developed in parallelel to running them, because of the strict deadline, therefore some very small modification might be needed to run them succesfully.
 
-### Installation
+#### Installation
 Installing and building the programs is very straightforward using the Dockerfile provided in the docker folder.
 
 
