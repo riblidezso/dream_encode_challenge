@@ -1,10 +1,10 @@
-# ELTE university team, ENCODE-DREAM in vivo Transcription Factor Binding Site Prediction Challenge
+#i Eotvos Lorand University team, ENCODE-DREAM in vivo Transcription Factor Binding Site Prediction Challenge
 
 Authors: Dezso Ribli, Janos Szalai-Gindl, Akos Rudas, Sandor Laki, Attila Kiss, Istvan Csabai
 
 Affiliations: Eotvos Lorand University
 
-The submission can (not) be public.
+The submission can be made public.
 
 ## Background/Intro
 
@@ -24,7 +24,7 @@ We have used the following variables:
 Please note that our leaderboard submission is different from the final submissions, as it does not use the chipseq labels from other cell lines as input variables. The notebook can be found in lb_subs_09_30 folder.
 
 #### Model
-We have used logistic regression, trained in a stochastic gradient fashion, using sklearn to predict the labels.
+We have used logistic regression, trained in a stochastic gradient fashion, using scikit-learn to predict the labels.
 
 #### Running the code
 The preprocessed data was generated using the scripts in create_data_tables folder.  The predictions were made in jupyter notebooks and these notebooks can be found in the final_subs_09_30 folder. To run the notebooks just click run all.  Please note that the notebooks and the scripts were developed in parallelel to running them, because of the strict deadline, therefore some very small modification might be needed to run them succesfully.
@@ -45,4 +45,6 @@ Each author took part in the discussions where we designed our method. Janos Sza
 ## Acknowledgements
 
 We would like to thank the authors of the baseline method which was provided by the challenge oragizers.
+
+Research was supported by the Novo Nordisk Foundation Interdisciplinary Synergy Programme Grant no.  NNF15OC0016584 and Modernisation and Improvement of Technical Infrastructure for Research and Development Grant no. ITMS 26210120042 .
 
