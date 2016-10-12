@@ -1,14 +1,16 @@
 # Dream encode challenge
 
+## deadline_09_30 folder
 
+This folder contains the source code and the writeup for our submissions made until the deadline on 09.30.
 
-## final_sub_09_30 folder
+#### final_sub_09_30 folder
 
 This folder contains the notebooks which create the submissions for every TF-CELL line pair for the final submission. Its read the data tables created by me (described below), models with SGD logistic regression, uses a validation cell line if possible, and creates the submission.
 
 Note: Here I have used TF binding labels from the training cell lines as inputs, but this should not be used like this in the future. The positions which will be evaluated are on chromosomes without this kind of data. (Here I put 0-s as inputs to those chromosomes.)
 
-## lb_subs_09_30 folder
+#### lb_subs_09_30 folder
 
 It contains notebook about the 1 and only leaderboard submission we have made so far. It does not use the labels from other cell lines as inputs. It validates the results using a local validation cell line and local validation chromosomes. The local validation result was very close the results on the leaderboard, therefore I think we can use this validation scheme for further experiments.
 
