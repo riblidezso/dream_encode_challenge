@@ -1,4 +1,4 @@
-#i Eotvos Lorand University team, ENCODE-DREAM in vivo Transcription Factor Binding Site Prediction Challenge
+# Eotvos Lorand University team, ENCODE-DREAM in vivo Transcription Factor Binding Site Prediction Challenge
 
 Authors: Dezso Ribli, Janos Szalai-Gindl, Akos Rudas, Sandor Laki, Attila Kiss, Istvan Csabai
 
