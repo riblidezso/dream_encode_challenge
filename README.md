@@ -1,5 +1,21 @@
 # Dream encode challenge
 
+## notebooks
+
+####  CTCF_local_test
+
+Read the prepared data, selects train and validation cell lines, selects train and validation chromosomes, runs and evaluates a model.
+
+####  my basline: Dissected and reproduced the baseline script
+
+This is old, only for demonstration. Refer to the example notebook for code.
+
+- I cut the originial loader class (which takes around 6-8 hours for me to run) into separate loader functions for the different columns of the input.
+- I have done some small and easy parallelization (3-10x faster).
+- Some parts are not complete, and has to be understood in the baseline.
+
+
+
 ## deadline_09_30 folder
 
 This folder contains the source code and the writeup for our submissions made until the deadline on 09.30.
@@ -45,14 +61,6 @@ These files were created with the create_extended_labels.py script and they can 
 import pandas as pd
 A549_labels_df=pd.read_hdf("/tables/labels/ATF2_labels.hdf","labels")
 ```
-## my_baseline notebook
-
-#### Dissected and reproduced the baseline script
-
-- I cut the originial loader class (which takes around 6-8 hours for me to run) into separate loader functions for the different columns of the input.
-- I have done some small and easy parallelization (3-10x faster).
-- Some parts are not complete, and has to be understood in the baseline.
-
 
 ## Docker
 
